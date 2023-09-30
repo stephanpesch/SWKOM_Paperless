@@ -1,3 +1,7 @@
+# Paperless Spring Backend
+
+**This project is part of a university course, only teammates will be allowed to merge changes into it.**
+
 # OpenAPI generated server
 
 Spring Boot Server
