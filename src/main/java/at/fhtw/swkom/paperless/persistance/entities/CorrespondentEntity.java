@@ -1,10 +1,7 @@
 package at.fhtw.swkom.paperless.persistance.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,11 +22,11 @@ public class CorrespondentEntity {
 
     private Long id;
 
-    private String slug;
+    private JsonNullable<String> slug = JsonNullable.<String>undefined();;
 
-    private String name;
+    private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-    private String match;
+    private JsonNullable<String> match = JsonNullable.<String>undefined();
 
     private Long matchingAlgorithm;
 

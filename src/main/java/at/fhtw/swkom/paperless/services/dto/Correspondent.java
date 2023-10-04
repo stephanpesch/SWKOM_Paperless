@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+
+import lombok.Builder;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.NoSuchElementException;
@@ -22,7 +24,7 @@ import jakarta.annotation.Generated;
 /**
  * Correspondent
  */
-
+@Builder
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T17:21:29.454572Z[Etc/UTC]")
 public class Correspondent {
 
@@ -43,7 +45,7 @@ public class Correspondent {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime lastCorrespondence;
 
-  public Correspondent id(Long id) {
+    public Correspondent id(Long id) {
     this.id = id;
     return this;
   }
