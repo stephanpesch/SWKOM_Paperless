@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * Document
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T17:21:29.454572Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-09T12:40:29.990007Z[Etc/UTC]")
 public class Document {
 
   private Integer id;
