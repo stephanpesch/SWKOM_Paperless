@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("GetCorrespondents_200_response_results_inner_permissions_view")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-09T12:40:29.990007Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class GetCorrespondents200ResponseResultsInnerPermissionsView {
 
   @Valid

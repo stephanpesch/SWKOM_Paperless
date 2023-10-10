@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("GetDocumentTypes_200_response_results_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-09T12:40:29.990007Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class GetDocumentTypes200ResponseResultsInner {
 
   private Integer id;

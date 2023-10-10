@@ -78,9 +78,8 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-09T13:30:35.863499Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 @Validated
-@CrossOrigin(origins = "*")
 @Tag(name = "Tasks", description = "the Tasks API")
 public interface ApiApi {
 
@@ -89,7 +88,7 @@ public interface ApiApi {
     }
 
     /**
-     * POST /api/acknowledge_tasks
+     * POST /api/acknowledge_tasks/
      *
      * @param ackTasksRequest  (optional)
      * @return Success (status code 200)
@@ -105,7 +104,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/acknowledge_tasks",
+        value = "/api/acknowledge_tasks/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -128,7 +127,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api
+     * GET /api/
      *
      * @return Success (status code 200)
      */
@@ -141,7 +140,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api"
+        value = "/api/"
     )
     
     default ResponseEntity<Void> apiGet(
@@ -153,7 +152,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/search/autocomplete
+     * GET /api/search/autocomplete/
      *
      * @param term  (optional)
      * @param limit  (optional)
@@ -170,7 +169,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/search/autocomplete",
+        value = "/api/search/autocomplete/",
         produces = { "application/json" }
     )
     
@@ -193,7 +192,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/documents/bulk_edit
+     * POST /api/documents/bulk_edit/
      *
      * @param bulkEditRequest  (optional)
      * @return Success (status code 200)
@@ -207,7 +206,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/documents/bulk_edit",
+        value = "/api/documents/bulk_edit/",
         consumes = { "application/json" }
     )
     
@@ -220,7 +219,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/correspondents
+     * POST /api/correspondents/
      *
      * @param createCorrespondentRequest  (optional)
      * @return Success (status code 200)
@@ -236,7 +235,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/correspondents",
+        value = "/api/correspondents/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +258,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/document_types
+     * POST /api/document_types/
      *
      * @param createCorrespondentRequest  (optional)
      * @return Success (status code 200)
@@ -275,7 +274,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/document_types",
+        value = "/api/document_types/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -298,7 +297,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/groups
+     * POST /api/groups/
      *
      * @param createGroupRequest  (optional)
      * @return Success (status code 200)
@@ -314,7 +313,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/groups",
+        value = "/api/groups/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -349,13 +348,13 @@ public interface ApiApi {
     default ResponseEntity<Void> createSavedViews(
         @Parameter(name = "CreateSavedViewsRequest", description = "") @Valid @RequestBody(required = false) CreateSavedViewsRequest createSavedViewsRequest
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
 
     /**
-     * POST /api/storage_paths
+     * POST /api/storage_paths/
      *
      * @param createStoragePathRequest  (optional)
      * @return Success (status code 200)
@@ -371,7 +370,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/storage_paths",
+        value = "/api/storage_paths/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -394,7 +393,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/tags
+     * POST /api/tags/
      *
      * @param createTagRequest  (optional)
      * @return Success (status code 200)
@@ -410,7 +409,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/tags",
+        value = "/api/tags/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -433,7 +432,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/ui_settings
+     * POST /api/ui_settings/
      *
      * @param createUISettingsRequest  (optional)
      * @return Success (status code 200)
@@ -449,7 +448,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/ui_settings",
+        value = "/api/ui_settings/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -466,13 +465,13 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
 
     /**
-     * POST /api/users
+     * POST /api/users/
      *
      * @param createUserRequest  (optional)
      * @return Success (status code 200)
@@ -488,7 +487,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/users",
+        value = "/api/users/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -511,7 +510,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/correspondents/{id}
+     * DELETE /api/correspondents/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -525,7 +524,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/correspondents/{id}"
+        value = "/api/correspondents/{id}/"
     )
     
     default ResponseEntity<Void> deleteCorrespondent(
@@ -537,7 +536,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/documents/{id}
+     * DELETE /api/documents/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -551,7 +550,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/documents/{id}"
+        value = "/api/documents/{id}/"
     )
     
     default ResponseEntity<Void> deleteDocument(
@@ -563,7 +562,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/document_types/{id}
+     * DELETE /api/document_types/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -577,7 +576,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/document_types/{id}"
+        value = "/api/document_types/{id}/"
     )
     
     default ResponseEntity<Void> deleteDocumentType(
@@ -589,7 +588,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/groups/{id}
+     * DELETE /api/groups/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -603,7 +602,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/groups/{id}"
+        value = "/api/groups/{id}/"
     )
     
     default ResponseEntity<Void> deleteGroup(
@@ -615,7 +614,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/storage_paths/{id}
+     * DELETE /api/storage_paths/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -629,7 +628,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/storage_paths/{id}"
+        value = "/api/storage_paths/{id}/"
     )
     
     default ResponseEntity<Void> deleteStoragePath(
@@ -641,7 +640,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/tags/{id}
+     * DELETE /api/tags/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -655,7 +654,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/tags/{id}"
+        value = "/api/tags/{id}/"
     )
     
     default ResponseEntity<Void> deleteTag(
@@ -667,7 +666,7 @@ public interface ApiApi {
 
 
     /**
-     * DELETE /api/users/{id}
+     * DELETE /api/users/{id}/
      *
      * @param id  (required)
      * @return Success (status code 204)
@@ -681,7 +680,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/api/users/{id}"
+        value = "/api/users/{id}/"
     )
     
     default ResponseEntity<Void> deleteUser(
@@ -693,7 +692,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}/download
+     * GET /api/documents/{id}/download/
      *
      * @param id  (required)
      * @param original  (optional)
@@ -710,7 +709,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}/download",
+        value = "/api/documents/{id}/download/",
         produces = { "application/pdf" }
     )
     
@@ -724,7 +723,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/correspondents
+     * GET /api/correspondents/
      *
      * @param page  (optional)
      * @param fullPerms  (optional)
@@ -741,7 +740,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/correspondents",
+        value = "/api/correspondents/",
         produces = { "application/json" }
     )
     
@@ -764,7 +763,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}
+     * GET /api/documents/{id}/
      *
      * @param id  (required)
      * @param page  (optional)
@@ -782,7 +781,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}",
+        value = "/api/documents/{id}/",
         produces = { "application/json" }
     )
     
@@ -806,7 +805,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}/metadata
+     * GET /api/documents/{id}/metadata/
      *
      * @param id  (required)
      * @return Success (status code 200)
@@ -822,7 +821,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}/metadata",
+        value = "/api/documents/{id}/metadata/",
         produces = { "application/json" }
     )
     
@@ -844,7 +843,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}/preview
+     * GET /api/documents/{id}/preview/
      *
      * @param id  (required)
      * @return Success (status code 200)
@@ -860,7 +859,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}/preview",
+        value = "/api/documents/{id}/preview/",
         produces = { "application/pdf" }
     )
     
@@ -873,7 +872,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}/suggestions
+     * GET /api/documents/{id}/suggestions/
      *
      * @param id  (required)
      * @return Success (status code 200)
@@ -889,7 +888,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}/suggestions",
+        value = "/api/documents/{id}/suggestions/",
         produces = { "application/json" }
     )
     
@@ -911,7 +910,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents/{id}/thumb
+     * GET /api/documents/{id}/thumb/
      *
      * @param id  (required)
      * @return Success (status code 200)
@@ -927,7 +926,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents/{id}/thumb",
+        value = "/api/documents/{id}/thumb/",
         produces = { "application/pdf" }
     )
     
@@ -940,7 +939,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/document_types
+     * GET /api/document_types/
      *
      * @param page  (optional)
      * @param fullPerms  (optional)
@@ -957,7 +956,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/document_types",
+        value = "/api/document_types/",
         produces = { "application/json" }
     )
     
@@ -980,7 +979,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/documents
+     * GET /api/documents/
      *
      * @param page  (optional)
      * @param pageSize  (optional)
@@ -1004,7 +1003,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/documents",
+        value = "/api/documents/",
         produces = { "application/json" }
     )
     
@@ -1034,7 +1033,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/groups
+     * GET /api/groups/
      *
      * @param page  (optional)
      * @param pageSize  (optional)
@@ -1051,7 +1050,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/groups",
+        value = "/api/groups/",
         produces = { "application/json" }
     )
     
@@ -1074,7 +1073,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/logs/{id}
+     * GET /api/logs/{id}/
      *
      * @param id  (required)
      * @return Success (status code 200)
@@ -1090,7 +1089,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/logs/{id}",
+        value = "/api/logs/{id}/",
         produces = { "application/json" }
     )
     
@@ -1112,7 +1111,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/logs
+     * GET /api/logs/
      *
      * @return Success (status code 200)
      */
@@ -1127,7 +1126,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/logs",
+        value = "/api/logs/",
         produces = { "application/json" }
     )
     
@@ -1149,7 +1148,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/saved_views
+     * GET /api/saved_views/
      *
      * @param page  (optional)
      * @param pageSize  (optional)
@@ -1166,7 +1165,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/saved_views",
+        value = "/api/saved_views/",
         produces = { "application/json" }
     )
     
@@ -1183,13 +1182,13 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
 
     /**
-     * GET /api/storage_paths
+     * GET /api/storage_paths/
      *
      * @param page  (optional)
      * @param fullPerms  (optional)
@@ -1206,7 +1205,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/storage_paths",
+        value = "/api/storage_paths/",
         produces = { "application/json" }
     )
     
@@ -1229,7 +1228,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/tags
+     * GET /api/tags/
      *
      * @param page  (optional)
      * @param fullPerms  (optional)
@@ -1246,7 +1245,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/tags",
+        value = "/api/tags/",
         produces = { "application/json" }
     )
     
@@ -1269,7 +1268,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/tasks
+     * GET /api/tasks/
      *
      * @return Success (status code 200)
      */
@@ -1284,7 +1283,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/tasks",
+        value = "/api/tasks/",
         produces = { "application/json" }
     )
     
@@ -1306,7 +1305,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/token
+     * POST /api/token/
      *
      * @param userInfo  (optional)
      * @return Success (status code 200)
@@ -1320,7 +1319,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/token",
+        value = "/api/token/",
         consumes = { "application/json", "text/json", "application/*+json" }
     )
     
@@ -1364,13 +1363,13 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
 
     /**
-     * GET /api/users
+     * GET /api/users/
      *
      * @param page  (optional)
      * @param pageSize  (optional)
@@ -1387,7 +1386,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/users",
+        value = "/api/users/",
         produces = { "application/json" }
     )
     
@@ -1410,7 +1409,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api
+     * POST /api/
      *
      * @return Success (status code 200)
      */
@@ -1423,7 +1422,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api"
+        value = "/api/"
     )
     
     default ResponseEntity<Void> root(
@@ -1435,7 +1434,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/documents/selection_data
+     * POST /api/documents/selection_data/
      *
      * @param selectionDataRequest  (optional)
      * @return Success (status code 200)
@@ -1451,7 +1450,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/documents/selection_data",
+        value = "/api/documents/selection_data/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1474,7 +1473,7 @@ public interface ApiApi {
 
 
     /**
-     * GET /api/statistics
+     * GET /api/statistics/
      *
      * @return Success (status code 200)
      */
@@ -1489,7 +1488,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/api/statistics",
+        value = "/api/statistics/",
         produces = { "application/json" }
     )
     
@@ -1511,7 +1510,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/correspondents/{id}
+     * PUT /api/correspondents/{id}/
      *
      * @param id  (required)
      * @param updateCorrespondentRequest  (optional)
@@ -1528,7 +1527,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/correspondents/{id}",
+        value = "/api/correspondents/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1552,7 +1551,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/documents/{id}
+     * PUT /api/documents/{id}/
      *
      * @param id  (required)
      * @param updateDocumentRequest  (optional)
@@ -1569,7 +1568,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/documents/{id}",
+        value = "/api/documents/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1593,7 +1592,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/document_types/{id}
+     * PUT /api/document_types/{id}/
      *
      * @param id  (required)
      * @param updateDocumentTypeRequest  (optional)
@@ -1610,7 +1609,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/document_types/{id}",
+        value = "/api/document_types/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1634,7 +1633,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/groups/{id}
+     * PUT /api/groups/{id}/
      *
      * @param id  (required)
      * @param updateGroupRequest  (optional)
@@ -1651,7 +1650,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/groups/{id}",
+        value = "/api/groups/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1675,7 +1674,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/storage_paths/{id}
+     * PUT /api/storage_paths/{id}/
      *
      * @param id  (required)
      * @param updateStoragePathRequest  (optional)
@@ -1692,7 +1691,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/storage_paths/{id}",
+        value = "/api/storage_paths/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1716,7 +1715,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/tags/{id}
+     * PUT /api/tags/{id}/
      *
      * @param id  (required)
      * @param updateTagRequest  (optional)
@@ -1733,7 +1732,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/tags/{id}",
+        value = "/api/tags/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1757,7 +1756,7 @@ public interface ApiApi {
 
 
     /**
-     * PUT /api/users/{id}
+     * PUT /api/users/{id}/
      *
      * @param id  (required)
      * @param updateUserRequest  (optional)
@@ -1774,7 +1773,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/api/users/{id}",
+        value = "/api/users/{id}/",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -1798,7 +1797,7 @@ public interface ApiApi {
 
 
     /**
-     * POST /api/documents/post_document
+     * POST /api/documents/post_document/
      *
      * @param title  (optional)
      * @param created  (optional)
@@ -1817,7 +1816,7 @@ public interface ApiApi {
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/api/documents/post_document",
+        value = "/api/documents/post_document/",
         consumes = { "multipart/form-data" }
     )
     
