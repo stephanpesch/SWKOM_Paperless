@@ -69,7 +69,7 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 @Controller
 @RequestMapping("${openapi.paperlessRestServer.base-path:}")
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin
 public class ApiApiController implements ApiApi {
 
     private final NativeWebRequest request;
