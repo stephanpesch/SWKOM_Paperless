@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * NewCorrespondent
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T17:21:29.454572Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class NewCorrespondent {
 
   private JsonNullable<String> name = JsonNullable.<String>undefined();
