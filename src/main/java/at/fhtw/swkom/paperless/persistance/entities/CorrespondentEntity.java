@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "correspondents")
 public class CorrespondentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +24,7 @@ public class CorrespondentEntity {
     private Long id;
 
     private JsonNullable<String> slug = JsonNullable.<String>undefined();;
-
+    @Column(name = "correspondent_name")
     private JsonNullable<String> name = JsonNullable.<String>undefined();
 
     private JsonNullable<String> match = JsonNullable.<String>undefined();
