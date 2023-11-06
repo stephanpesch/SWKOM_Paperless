@@ -1,5 +1,5 @@
 # Use a base image with Java and Maven pre-installed
-FROM maven:3.8.4-openjdk-17-slim AS builder
+FROM maven:3.9.2 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -12,10 +12,10 @@ RUN mvn dependency:go-offline
 COPY src ./src
 
 # Build the Spring Boot application
-RUN mvn package -DskipTests
+RUN mvn -e -X package -DskipTests
 
 # Use an OpenJDK image for running the application
-FROM openjdk:17-slim
+FROM openjdk:17
 
 # Set the working directory
 WORKDIR /app
