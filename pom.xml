@@ -13,7 +13,7 @@
         <springdoc.version>2.0.2</springdoc.version>
         <swagger-ui.version>4.15.5</swagger-ui.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-        <org.projectlombok.version>1.18.12</org.projectlombok.version>
+        <org.projectlombok.version>1.18.28</org.projectlombok.version>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -46,7 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -72,13 +72,11 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
-        <!--
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
-        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
