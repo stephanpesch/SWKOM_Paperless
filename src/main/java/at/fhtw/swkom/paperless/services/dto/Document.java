@@ -8,6 +8,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import lombok.Builder;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.NoSuchElementException;
@@ -24,7 +26,7 @@ import jakarta.annotation.Generated;
 /**
  * Document
  */
-
+@Builder
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class Document {
 

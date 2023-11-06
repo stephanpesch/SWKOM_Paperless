@@ -19,7 +19,7 @@ import java.util.List;
 public class DocumentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private Integer correspondent;
     private Integer documentType;
     private Integer storagePath;
@@ -28,7 +28,7 @@ public class DocumentEntity {
     @ElementCollection
     @CollectionTable(name = "tags")
     @Column(name = "tags")
-    private List<String> tags = new ArrayList<>();
+    private List<Integer> tags = new ArrayList<>();
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private OffsetDateTime created;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -40,4 +40,5 @@ public class DocumentEntity {
     private String archiveSerialNumber;
     private String originalFileName;
     private String archivedFileName;
+
 }
