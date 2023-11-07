@@ -4,9 +4,14 @@ import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
 import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
 import at.fhtw.swkom.paperless.services.dto.Correspondent;
 import at.fhtw.swkom.paperless.services.dto.Document;
+import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.springframework.web.multipart.MultipartFile;
 
 public class DocumentMapper extends AbstractMapper<DocumentEntity, Document> implements DocumentService{
+
+   public static DocumentMapper INSTANCE = Mappers.getMapper(DocumentMapper.class);
+
     @Override
     public Document toDto(DocumentEntity entity) {
         return Document.builder()
@@ -45,5 +50,10 @@ public class DocumentMapper extends AbstractMapper<DocumentEntity, Document> imp
                 .originalFileName(dto.getOriginalFileName().get())
                 .archivedFileName(dto.getArchivedFileName().get())
                 .build();
+    }
+
+    @Override
+    public Document uploadDocument(MultipartFile file) {
+        return null;
     }
 }

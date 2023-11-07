@@ -16,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "documents")
 public class DocumentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,3 +43,4 @@ public class DocumentEntity {
     private String archivedFileName;
 
 }
+
