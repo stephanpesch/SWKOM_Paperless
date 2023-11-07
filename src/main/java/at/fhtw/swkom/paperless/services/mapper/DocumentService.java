@@ -2,6 +2,8 @@ package at.fhtw.swkom.paperless.services.mapper;
 
 import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
 import at.fhtw.swkom.paperless.services.dto.Document;
+import lombok.Data;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

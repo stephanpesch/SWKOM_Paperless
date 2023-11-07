@@ -1,7 +1,6 @@
 package at.fhtw.swkom.paperless.services.impl;
 
 import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
-import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
 import at.fhtw.swkom.paperless.persistance.repositories.DocumentRepository;
 import at.fhtw.swkom.paperless.services.dto.Document;
 import at.fhtw.swkom.paperless.services.mapper.DocumentMapper;
@@ -14,28 +13,27 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 
 @Service
 @Data
 public abstract class DocumentServiceImpl implements DocumentService {
-    private DocumentRepository documentRepository;
-    private DocumentMapper documentMapper;
+    private final DocumentRepository documentRepository;
+    private final DocumentMapper documentMapper;
 
     @Autowired
-    public void DocumentService(DocumentRepository documentRepository, DocumentMapper documentMapper) {
+    public DocumentServiceImpl(DocumentRepository documentRepository, DocumentMapper documentMapper) {
         this.documentRepository = documentRepository;
         this.documentMapper = documentMapper;
     }
 
-    @Transactional
+    @Override
     public Document uploadDocument(MultipartFile file) throws IOException {
         // Check if the file is empty or not
         if (file.isEmpty()) {
             throw new IllegalStateException("Cannot upload an empty file");
         }
-
-        // You might also want to check the file content type or size here
 
         // Create a new Document entity
         DocumentEntity documentEntity = new DocumentEntity();

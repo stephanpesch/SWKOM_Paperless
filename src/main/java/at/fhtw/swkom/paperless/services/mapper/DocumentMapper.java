@@ -1,13 +1,15 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
-import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
 import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
-import at.fhtw.swkom.paperless.services.dto.Correspondent;
 import at.fhtw.swkom.paperless.services.dto.Document;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+@Mapper
+@Component
 public class DocumentMapper extends AbstractMapper<DocumentEntity, Document> implements DocumentService{
 
    public static DocumentMapper INSTANCE = Mappers.getMapper(DocumentMapper.class);
