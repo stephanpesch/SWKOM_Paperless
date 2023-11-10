@@ -1,20 +1,30 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
 import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
+import at.fhtw.swkom.paperless.persistance.repositories.CorrespondentRepository;
+import at.fhtw.swkom.paperless.persistance.repositories.DocumentRepository;
 import at.fhtw.swkom.paperless.services.dto.Document;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-@Mapper
+@Mapper(componentModel = "spring")
 @Component
-public class DocumentMapper extends AbstractMapper<DocumentEntity, Document> implements DocumentService{
+public abstract class DocumentMapper extends AbstractMapper<DocumentEntity, Document> implements DocumentService{
 
    public static DocumentMapper INSTANCE = Mappers.getMapper(DocumentMapper.class);
 
-    @Override
+   @Autowired
+   private DocumentRepository documentRepository;
+
+   @Autowired
+   private CorrespondentRepository correspondentRepository;
+
+  /*  @Override
     public Document toDto(DocumentEntity entity) {
         return Document.builder()
                 .id(entity.getId())
@@ -52,7 +62,17 @@ public class DocumentMapper extends AbstractMapper<DocumentEntity, Document> imp
                 .originalFileName(dto.getOriginalFileName().get())
                 .archivedFileName(dto.getArchivedFileName().get())
                 .build();
-    }
+    }*/
+
+    @Mapping(target = "correspondent", source ="correspondent",qualifiedByName = "Correspondent")
+    @Mapping(target = "documentType", source ="documentType",qualifiedByName = "DocumentType")
+    @Mapping(target = "tags", source ="tags",qualifiedByName = "DocTag")
+    abstract public Document entityToDto(DocumentEntity entity);
+
+    @Mapping(target = "correspondent", source ="correspondent",qualifiedByName = "CorrespondentEntity")
+    @Mapping(target = "documentType", source ="documentType",qualifiedByName = "DocumentTypeEntity")
+    @Mapping(target = "tags", source ="tags",qualifiedByName = "DocTagEntity")
+    abstract public DocumentEntity dtoToEntity(Document dto);
 
     @Override
     public Document uploadDocument(MultipartFile file) {
