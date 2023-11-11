@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 public interface DocumentService extends Mapper<DocumentEntity,Document>{
-    Document uploadDocument(MultipartFile file) throws IOException;
+
 
 
 }
