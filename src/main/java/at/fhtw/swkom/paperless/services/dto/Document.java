@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.NoSuchElementException;
@@ -22,11 +25,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.*;
 import jakarta.annotation.Generated;
-
+import lombok.Builder.Default;
 /**
  * Document
  */
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class Document {
 
@@ -43,6 +49,7 @@ public class Document {
   private JsonNullable<String> content = JsonNullable.<String>undefined();
 
   @Valid
+  @Default
   private JsonNullable<List<Integer>> tags = JsonNullable.<List<Integer>>undefined();
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
