@@ -28,7 +28,12 @@
             <name>Spring Milestone Repository</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestones</id>
@@ -57,8 +62,13 @@
                             <version>${org.mapstruct.version}</version>
                         </path>
                         <path>
-                            <groupId>org.projectlombok</groupId>
+                            <groupId>org.project-lombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.project-lombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
                             <version>${org.projectlombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
