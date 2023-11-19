@@ -31,6 +31,4 @@ public class DocumentTypeEntity {
     private Boolean isInsensitive;
 
     private Long documentCount;
-
-
 }

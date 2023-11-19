@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -16,16 +15,16 @@ public interface DocumentMapper {
     DocumentMapper INSTANCE = Mappers.getMapper(DocumentMapper.class);
 
 
-        // Add mappings for other JsonNullable fields
-        @Mapping(target = "correspondent", source = "correspondent", qualifiedByName = "unwrapInteger")
-        @Mapping(target = "documentType", source = "documentType", qualifiedByName = "unwrapInteger")
-        @Mapping(target = "storagePath", source = "storagePath", qualifiedByName = "unwrapInteger")
-        @Mapping(target = "title", source = "title", qualifiedByName = "unwrapString")
-        @Mapping(target = "content", source = "content", qualifiedByName = "unwrapString")
-        @Mapping(target = "tags", source = "tags", qualifiedByName = "unwrapListInteger")
-        @Mapping(target = "archiveSerialNumber", source = "archiveSerialNumber", qualifiedByName = "unwrapString")
-        @Mapping(target = "originalFileName", source = "originalFileName", qualifiedByName = "unwrapString")
-        @Mapping(target = "archivedFileName", source = "archivedFileName", qualifiedByName = "unwrapString")
+    // Add mappings for other JsonNullable fields
+    @Mapping(target = "correspondent", source = "correspondent", qualifiedByName = "unwrapInteger")
+    @Mapping(target = "documentType", source = "documentType", qualifiedByName = "unwrapInteger")
+    @Mapping(target = "storagePath", source = "storagePath", qualifiedByName = "unwrapInteger")
+    @Mapping(target = "title", source = "title", qualifiedByName = "unwrapString")
+    @Mapping(target = "content", source = "content", qualifiedByName = "unwrapString")
+    @Mapping(target = "tags", source = "tags", qualifiedByName = "unwrapListInteger")
+    @Mapping(target = "archiveSerialNumber", source = "archiveSerialNumber", qualifiedByName = "unwrapString")
+    @Mapping(target = "originalFileName", source = "originalFileName", qualifiedByName = "unwrapString")
+    @Mapping(target = "archivedFileName", source = "archivedFileName", qualifiedByName = "unwrapString")
     DocumentEntity toDocumentEntity(Document document);
 
     // Inverse mapping

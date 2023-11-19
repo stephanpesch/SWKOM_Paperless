@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-
+import lombok.Builder.Default;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;

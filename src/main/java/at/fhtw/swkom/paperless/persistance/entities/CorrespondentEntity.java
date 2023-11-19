@@ -4,6 +4,7 @@ package at.fhtw.swkom.paperless.persistance.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -11,8 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.OffsetDateTime;
 
-@Data
+
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,11 +25,11 @@ public class CorrespondentEntity {
 
     private Long id;
 
-    private JsonNullable<String> slug = JsonNullable.<String>undefined();;
+    private String slug;
     @Column(name = "correspondent_name")
-    private JsonNullable<String> name = JsonNullable.<String>undefined();
+    private String name;
 
-    private JsonNullable<String> match = JsonNullable.<String>undefined();
+    private String match;
 
     private Long matchingAlgorithm;
 
