@@ -30,3 +30,27 @@ services:
             - ./postgres_db-data:/var/lib/postgresql/data
 
 
+    rabbitmq:
+        image: "rabbitmq:3-management"
+        container_name: 'rabbitmq'
+        ports:
+            - "5672:5672"
+            - "9093:15672"
+        environment:
+            RABBITMQ_DEFAULT_USER: "rabbitmq_user"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq_password"
+        volumes:
+            - ./data:/var/lib/rabbitmq/mnesia/
+
+
+    minio:
+        image: minio/minio
+        ports:
+            - "9000:9000"
+            - "9090:9090"
+        environment:
+            MINIO_ACCESS_KEY: minio
+            MINIO_SECRET_KEY: minio123
+        command: server /data --console-address ":9090"
+        volumes:
+            - ./minio_data:/data
