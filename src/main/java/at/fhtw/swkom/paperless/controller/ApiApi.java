@@ -5,6 +5,7 @@
  */
 package at.fhtw.swkom.paperless.controller;
 
+import at.fhtw.swkom.paperless.services.RabbitMQService;
 import at.fhtw.swkom.paperless.services.dto.AckTasks200Response;
 import at.fhtw.swkom.paperless.services.dto.AckTasksRequest;
 import at.fhtw.swkom.paperless.services.dto.BulkEditRequest;
@@ -19,6 +20,7 @@ import at.fhtw.swkom.paperless.services.dto.CreateTagRequest;
 import at.fhtw.swkom.paperless.services.dto.CreateUISettings200Response;
 import at.fhtw.swkom.paperless.services.dto.CreateUISettingsRequest;
 import at.fhtw.swkom.paperless.services.dto.CreateUserRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import at.fhtw.swkom.paperless.services.dto.GetCorrespondents200Response;
 import at.fhtw.swkom.paperless.services.dto.GetDocument200Response;
@@ -1819,7 +1821,6 @@ public interface ApiApi {
         value = "/api/documents/post_document/",
         consumes = { "multipart/form-data" }
     )
-    
     default ResponseEntity<Void> uploadDocument(
         @Parameter(name = "title", description = "") @Valid @RequestParam(value = "title", required = false) String title,
         @Parameter(name = "created", description = "") @Valid @RequestParam(value = "created", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime created,
@@ -1831,5 +1832,4 @@ public interface ApiApi {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
-
 }

@@ -20,14 +20,15 @@ services:
         image: postgres:latest
         container_name: postgres
         environment:
-            POSTGRES_USER: 'user'
-            POSTGRES_PASSWORD: 'password'
+            POSTGRES_USER: 'paperless'
+            POSTGRES_PASSWORD: 'paperless'
             POSTGRES_DB: 'paperless_db'
         ports:
             - "5432:5432"
 
         volumes:
             - ./postgres_db-data:/var/lib/postgresql/data
+            - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
 
     rabbitmq:
