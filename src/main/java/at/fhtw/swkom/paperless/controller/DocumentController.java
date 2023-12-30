@@ -12,6 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+
+/*
 @RestController
 @RequestMapping("/api/documents")
 public class DocumentController {
@@ -37,3 +39,4 @@ public class DocumentController {
 
 }
 
+*/

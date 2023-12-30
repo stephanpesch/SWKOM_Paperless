@@ -8,7 +8,12 @@ services:
             - "8080:8080"
         depends_on:
             - angular-app
-
+            - postgres_db
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql:localhost:5432/paperless_db
+            - SPRING_DATASOURCE_USERNAME=paperless
+            - SPRING_DATASOURCE_PASSWORD=paperless
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     angular-app:
         image: nginx:latest
         volumes:
