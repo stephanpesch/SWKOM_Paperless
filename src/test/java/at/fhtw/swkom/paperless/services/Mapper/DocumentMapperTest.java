@@ -1,11 +1,10 @@
 package at.fhtw.swkom.paperless.services.Mapper;
 
-import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
+import at.fhtw.swkom.paperless.persistance.entities.DocumentsDocumentEntity;
 import at.fhtw.swkom.paperless.services.dto.Document;
 import at.fhtw.swkom.paperless.services.mapper.DocumentMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +21,7 @@ public class DocumentMapperTest {
     @Test
     public void testDocumentMapping() {
         // Create a sample DocumentEntity
-        DocumentEntity entity = new DocumentEntity();
+        DocumentsDocumentEntity entity = new DocumentsDocumentEntity();
         entity.setTitle("paperless");
 
         // Perform the mapping
@@ -40,7 +39,7 @@ public class DocumentMapperTest {
         dto.setTitle(JsonNullable.of("paperless"));
 
         // Perform the mapping
-        DocumentEntity entity = documentMapper.toDocumentEntity(dto);
+        DocumentsDocumentEntity entity = documentMapper.toDocumentEntity(dto);
 
         // Assert the results
         assertEquals(dto.getTitle().orElse(null), entity.getTitle());

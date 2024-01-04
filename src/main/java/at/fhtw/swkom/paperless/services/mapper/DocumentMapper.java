@@ -1,6 +1,6 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
-import at.fhtw.swkom.paperless.persistance.entities.DocumentEntity;
+import at.fhtw.swkom.paperless.persistance.entities.DocumentsDocumentEntity;
 import at.fhtw.swkom.paperless.services.dto.Document;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -25,7 +25,7 @@ public interface DocumentMapper {
     @Mapping(target = "archiveSerialNumber", source = "archiveSerialNumber", qualifiedByName = "unwrapString")
     @Mapping(target = "originalFileName", source = "originalFileName", qualifiedByName = "unwrapString")
     @Mapping(target = "archivedFileName", source = "archivedFileName", qualifiedByName = "unwrapString")
-    DocumentEntity toDocumentEntity(Document document);
+    DocumentsDocumentEntity toDocumentEntity(Document document);
 
     // Inverse mapping
     @Mapping(target = "correspondent", source = "correspondent", qualifiedByName = "wrapInteger")
@@ -37,7 +37,7 @@ public interface DocumentMapper {
     @Mapping(target = "archiveSerialNumber", source = "archiveSerialNumber", qualifiedByName = "wrapString")
     @Mapping(target = "originalFileName", source = "originalFileName", qualifiedByName = "wrapString")
     @Mapping(target = "archivedFileName", source = "archivedFileName", qualifiedByName = "wrapString")
-    Document toDocumentDTO(DocumentEntity documentEntity);
+    Document toDocumentDTO(DocumentsDocumentEntity documentsDocumentEntity);
 
     // Custom methods to handle JsonNullable unwrapping
     @Named("unwrapInteger")
