@@ -1,13 +1,14 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
 
-import at.fhtw.swkom.paperless.persistance.entities.DocTagEntity;
+//import at.fhtw.swkom.paperless.persistance.entities.DocTagEntity;
 import at.fhtw.swkom.paperless.services.dto.DocTag;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.jackson.nullable.JsonNullable;
+/*
 
 @Mapper(componentModel = "spring")
 public interface DocTagMapper {
@@ -36,3 +37,5 @@ public interface DocTagMapper {
         return JsonNullable.of(value);
     }
 }
+
+ */

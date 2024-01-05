@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+/*
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -32,3 +34,4 @@ public class NewTagEntity {
     private Boolean isInboxTag;
 
 }
+*/

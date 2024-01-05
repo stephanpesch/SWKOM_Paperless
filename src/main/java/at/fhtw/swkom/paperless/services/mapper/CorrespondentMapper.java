@@ -1,7 +1,7 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
 
-import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
+//import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
 import at.fhtw.swkom.paperless.services.dto.Correspondent;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -11,6 +11,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 import java.util.Collections;
 import java.util.List;
+
+/*
 
 @Mapper(componentModel = "spring")
 public interface CorrespondentMapper {
@@ -40,3 +42,4 @@ public interface CorrespondentMapper {
     }
 
 }
+*/

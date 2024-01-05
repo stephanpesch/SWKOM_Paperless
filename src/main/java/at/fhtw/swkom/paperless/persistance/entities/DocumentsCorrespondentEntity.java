@@ -35,6 +35,6 @@ public class DocumentsCorrespondentEntity {
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
 
-    // Getters and setters for all fields
+
 }
 

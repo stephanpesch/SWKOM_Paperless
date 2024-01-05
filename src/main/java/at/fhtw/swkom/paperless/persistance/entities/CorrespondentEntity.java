@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.OffsetDateTime;
 
-
+/*
 @Builder
 @Data
 @NoArgsConstructor
@@ -41,3 +41,4 @@ public class CorrespondentEntity {
     private OffsetDateTime lastCorrespondence;
 
 }
+*/

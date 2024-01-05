@@ -1,5 +1,6 @@
 package at.fhtw.swkom.paperless.services.mapper;
 
+/*
 
 import at.fhtw.swkom.paperless.persistance.entities.DocumentTypeEntity;
 import at.fhtw.swkom.paperless.services.dto.DocumentType;
@@ -34,3 +35,6 @@ public interface DocumentTypeMapper {
         return JsonNullable.of(value);
     }
 }
+
+
+ */
