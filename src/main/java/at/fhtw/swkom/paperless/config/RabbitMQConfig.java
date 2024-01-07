@@ -1,13 +1,12 @@
 package at.fhtw.swkom.paperless.config;
 
 
-import com.rabbitmq.client.impl.AMQImpl;
+
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.amqp.support.converter.MessageConverter;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,60 +15,26 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    @Value("${rabbitmq.queue.name}")
-    private String queue;
-    @Value("${rabbitmq.exchange.name}")
-    private String exchange;
-
-    @Value("${rabbitmq.routing.key}")
-    private String routingKey;
-
-    @Value("${rabbitmq.queue.json.name}")
-    private String jsonQueue;
-
-    @Value("${rabbitmq.routing.json.key}")
-    private String routingJsonKey;
-
+    public static final String MESSAGE_IN_QUEUE = "Echo_In";
+    public static final String MESSAGE_OUT_QUEUE = "Echo_Out";
 
     @Bean
-    public Queue queue(){
-        return new Queue(queue);
+    public Queue echoInQueue() {return new Queue(MESSAGE_IN_QUEUE);}
+    @Bean
+    public Queue echoOutQueue() {return new Queue(MESSAGE_OUT_QUEUE);}
+
+    @Bean
+    public ConnectionFactory rabbitMQConnectionFactory() {
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory("http://localhost:9093");
+        connectionFactory.setUsername("rabbitmq_user");
+        connectionFactory.setPassword("rabbitmq_password");
+        return connectionFactory;
     }
 
     @Bean
-    public TopicExchange exchange() {
-        return new TopicExchange(exchange);
-    }
-
-    @Bean
-    public Queue jsonQueue(){ return new Queue(jsonQueue);}
-
-    @Bean
-    public Binding binding(Queue queue, TopicExchange exchange){
-         return BindingBuilder
-                .bind(queue)
-                .to(exchange)
-                .with(routingKey);
-
-    }
-
-    @Bean
-    public Binding jsonBinding(){
-        return BindingBuilder
-                .bind(jsonQueue())
-                .to(exchange())
-                .with(routingJsonKey);
-    }
-   @Bean
-   public MessageConverter messageConverter(){
-        return new Jackson2JsonMessageConverter();
-   }
-   @Bean
-   public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(messageConverter());
+    public RabbitTemplate rabbitTemplate() {
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(rabbitMQConnectionFactory());
+        rabbitTemplate.setDefaultReceiveQueue(MESSAGE_IN_QUEUE);
         return rabbitTemplate;
-   }
-
-
+    }
 }

@@ -32,25 +32,18 @@ public class MinIOConfig {
 
     @Bean
     public MinioClient MinioClient() {
-        try{
+        try {
             MinioClient minioClient = MinioClient.builder()
                     .endpoint(url)
                     .credentials(accessKey, accessSecret)
                     .build();
-            createNewBucket(minioClient);
+
             log.info("MinioClient initialized, url: {}", url);
             return minioClient;
-        }catch (Exception e){
-            throw new RuntimeException("Could not init MinioClient",e);
+        } catch (Exception e) {
+            throw new RuntimeException("Could not init MinioClient", e);
         }
     }
 
-    private void createNewBucket(MinioClient minioClient) throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
-        minioClient.makeBucket(
-                MakeBucketArgs
-                .builder()
-                .bucket(bucketName)
-                .build());
-    }
 }
 
