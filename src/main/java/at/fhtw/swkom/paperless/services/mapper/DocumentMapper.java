@@ -73,7 +73,6 @@ public abstract class DocumentMapper implements BaseMapper<DocumentsDocumentEnti
         return tags!=null ? JsonNullable.of( tags.stream().map( tag->(int)tag.getId() ).toList() ) : JsonNullable.undefined();
     }
 
-    // map created to createdDate (Date without the time)
     @Named("createdToCreatedDate")
     OffsetDateTime mapCreatedDate(OffsetDateTime value) {
         return value!=null ? value.withOffsetSameInstant(ZoneOffset.UTC).toLocalDate().atStartOfDay().atOffset(ZoneOffset.UTC) : null;
