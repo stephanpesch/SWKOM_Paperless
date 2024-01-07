@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -39,6 +41,9 @@ public class DocumentsStoragePathEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
+
+    @OneToMany(mappedBy = "storagePath")
+    private Set<DocumentsDocumentEntity> storagePathDocuments;
 
 }
 

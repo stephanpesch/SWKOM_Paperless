@@ -26,7 +26,7 @@ public class DocumentsDocumentTagsEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_id", nullable = false)
-    private DocumentsTagEntity tag;
+    private DocumentsTagEntity tags;
 
 }
 

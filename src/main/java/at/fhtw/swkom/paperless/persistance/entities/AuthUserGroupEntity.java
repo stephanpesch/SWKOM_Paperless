@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -26,6 +28,9 @@ public class AuthUserGroupEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id", nullable = false)
     private AuthGroupEntity group;
+
+    @OneToMany(mappedBy = "group")
+    private Set<AuthUserGroupEntity> groupUserGroups;
 
 }
 

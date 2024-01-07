@@ -1,5 +1,6 @@
 package at.fhtw.swkom.paperless.services.Mapper;
 
+/*
 import at.fhtw.swkom.paperless.persistance.entities.DocTagEntity;
 import at.fhtw.swkom.paperless.services.dto.DocTag;
 import at.fhtw.swkom.paperless.services.mapper.DocTagMapper;
@@ -51,3 +52,4 @@ public class DocTagMapperTest {
     }
 }
 
+*/

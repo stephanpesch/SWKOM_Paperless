@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -39,5 +41,7 @@ public class DocumentsSavedViewEntity {
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
 
+    @OneToMany(mappedBy = "savedView")
+    private Set<DocumentsSavedViewFilterRuleEntity> savedViewSavedViewFilterRules;
 }
 

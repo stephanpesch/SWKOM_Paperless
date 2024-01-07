@@ -4,6 +4,8 @@ import at.fhtw.swkom.paperless.services.dto.Correspondent;
 import at.fhtw.swkom.paperless.services.dto.DocumentType;
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -75,6 +77,13 @@ public class DocumentsDocumentEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
+
+
+    @OneToMany(mappedBy = "document")
+    private Set<DocumentsDocumentTagsEntity> documentsTag;
+
+    @OneToMany(mappedBy = "document")
+    private Set<DocumentsNoteEntity> notes;
 
 }
 

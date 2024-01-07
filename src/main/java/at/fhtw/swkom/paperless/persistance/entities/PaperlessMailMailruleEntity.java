@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Set;
 
 
 @Data
@@ -80,6 +81,12 @@ public class PaperlessMailMailruleEntity {
 
     @Column(name = "filter_to", length = 256)
     private String filterTo;
+
+    @OneToMany(mappedBy = "rule")
+    private Set<PaperlessMailProcessedmailEntity> rulePaperlessMail;
+
+    @OneToMany(mappedBy = "mailrule")
+    private Set<PaperlessMailMailruleAssignTagsEntity> mailrulePaperlessMailTags;
 
 }
 

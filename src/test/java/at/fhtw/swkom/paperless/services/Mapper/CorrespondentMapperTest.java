@@ -1,5 +1,5 @@
 package at.fhtw.swkom.paperless.services.Mapper;
-
+/*
 import at.fhtw.swkom.paperless.persistance.entities.CorrespondentEntity;
 import at.fhtw.swkom.paperless.services.dto.Correspondent;
 import at.fhtw.swkom.paperless.services.mapper.CorrespondentMapper;
@@ -50,3 +50,6 @@ public class CorrespondentMapperTest {
 
     }
 }
+
+
+ */

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.OffsetDateTime;
+import java.util.Set;
 
 
 @Data
@@ -49,6 +50,48 @@ public class AuthUserEntity {
 
     @Column(name = "date_joined", nullable = false)
     private OffsetDateTime dateJoined;
+
+    @OneToMany(mappedBy = "user")
+    private Set<AuthUserGroupEntity> userGroups;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsCorrespondentEntity> correspondents;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsDocumentTypeEntity> documentTypes;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsStoragePathEntity> storagePaths;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsTagEntity> documentsTags;
+
+    @OneToMany(mappedBy = "user")
+    private Set<DocumentsUISettingsEntity> uiSettings;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsSavedViewEntity> savedViews;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<PaperlessMailMailaccountEntity> mailAccounts;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<DocumentsDocumentEntity> documents;
+
+    @OneToMany(mappedBy = "user")
+    private Set<DocumentsNoteEntity> documentsNotes;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<PaperlessMailMailruleEntity> mailRules;
+
+    @OneToMany(mappedBy = "user")
+    private Set<AuthUserUserPermissionsEntity> userPermissions;
+
+    @OneToMany(mappedBy = "user")
+    private Set<AuthtokenTokenEntity> authTokens;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<PaperlessMailProcessedmailEntity> processedMails;
 
 }
 

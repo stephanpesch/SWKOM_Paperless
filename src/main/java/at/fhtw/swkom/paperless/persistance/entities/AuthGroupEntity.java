@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -22,6 +24,11 @@ public class AuthGroupEntity {
     @Column(name = "name", nullable = false, length = 150, unique = true)
     private String name;
 
+    @OneToMany(mappedBy = "group")
+    private Set<AuthUserGroupEntity> groupUserGroups;
+
+    @OneToMany(mappedBy = "group")
+    private Set<AuthUserGroupEntity> groupGroupPermissions;
 
 }
 

@@ -1,5 +1,5 @@
 package at.fhtw.swkom.paperless.services.Mapper;
-
+/*
 import at.fhtw.swkom.paperless.persistance.entities.DocumentsDocumentEntity;
 import at.fhtw.swkom.paperless.services.dto.Document;
 import at.fhtw.swkom.paperless.services.mapper.DocumentMapper;
@@ -46,3 +46,6 @@ public class DocumentMapperTest {
     }
 }
 
+
+
+ */

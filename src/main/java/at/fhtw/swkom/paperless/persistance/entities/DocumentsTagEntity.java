@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -41,5 +43,10 @@ public class DocumentsTagEntity {
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
 
+    @OneToMany(mappedBy = "tags")
+    private Set<DocumentsDocumentTagsEntity> tagDocumentTags;
+
+    @OneToMany(mappedBy = "tag")
+    private Set<PaperlessMailMailruleAssignTagsEntity> tagMailRuleAssignTags;
 }
 

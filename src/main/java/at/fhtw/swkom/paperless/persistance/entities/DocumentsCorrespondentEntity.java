@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -36,5 +38,11 @@ public class DocumentsCorrespondentEntity {
     private AuthUserEntity owner;
 
 
-}
+    @OneToMany(mappedBy = "correspondent")
+    private Set<DocumentsDocumentEntity> correspondentDocuments;
 
+    @OneToMany(mappedBy = "assignCorrespondent")
+    private Set<PaperlessMailMailruleEntity> assignCorrespondentMailRules;
+
+
+}

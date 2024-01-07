@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -34,5 +36,11 @@ public class DocumentsDocumentTypeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private AuthUserEntity owner;
+
+    @OneToMany(mappedBy = "documentType")
+    private Set<DocumentsDocumentEntity> documentTypeDocuments;
+
+    @OneToMany(mappedBy = "assignDocumentType")
+    private Set<PaperlessMailMailruleEntity> assignDocumentTypeMailRules;
 
 }

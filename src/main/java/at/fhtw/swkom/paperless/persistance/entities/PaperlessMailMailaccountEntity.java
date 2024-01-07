@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -47,6 +49,9 @@ public class PaperlessMailMailaccountEntity {
 
     @Column(name = "is_token", nullable = false)
     private Boolean isToken;
+
+    @OneToMany(mappedBy = "account")
+    private Set<PaperlessMailMailruleEntity> accountMailRules;
 
 }
 
