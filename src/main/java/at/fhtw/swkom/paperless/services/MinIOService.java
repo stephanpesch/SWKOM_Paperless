@@ -1,5 +1,6 @@
 package at.fhtw.swkom.paperless.services;
 
+import io.minio.GetObjectArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidKeyException;
@@ -60,4 +62,30 @@ public class MinIOService {
         }
 
     }
+
+    public byte[] getFile(String filePath) {
+        try {
+            // Get object from MinIO
+            try (InputStream stream = minioClient.getObject(
+                    GetObjectArgs
+                            .builder()
+                            .bucket(bucketName)
+                            .object(filePath)
+                            .build());
+
+                 ByteArrayOutputStream buffer = new ByteArrayOutputStream()) {
+
+                int nRead;
+                byte[] data = new byte[1024];
+                while ((nRead = stream.read(data, 0, data.length)) != -1) {
+                    buffer.write(data, 0, nRead);
+                }
+                return buffer.toByteArray();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

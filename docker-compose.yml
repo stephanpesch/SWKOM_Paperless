@@ -60,3 +60,10 @@ services:
         command: server /data --console-address ":9090"
         volumes:
             - ./minio_data:/data
+
+
+    ocr-server:
+        image: tesseractshadow/tesseract4re
+        container_name: tesseract
+        volumes:
+            - ./ocr_data:/var/lib/ocr/data

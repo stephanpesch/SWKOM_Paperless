@@ -23,4 +23,6 @@ public class RabbitMQService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
+
+
 }

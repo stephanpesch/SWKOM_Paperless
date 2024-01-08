@@ -37,4 +37,5 @@ public class RabbitMQConfig {
         rabbitTemplate.setDefaultReceiveQueue(MESSAGE_IN_QUEUE);
         return rabbitTemplate;
     }
+
 }
