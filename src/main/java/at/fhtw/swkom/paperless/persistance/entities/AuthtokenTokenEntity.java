@@ -3,22 +3,29 @@ package at.fhtw.swkom.paperless.persistance.entities;
 import java.time.OffsetDateTime;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Getter
+@Setter
 @Entity
 @Table(name = "authtoken_token")
 public class AuthtokenTokenEntity {
 
     @Id
-    @Column(name = "key", length = 40)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
+
     private String key;
 
     @Column(name = "created", nullable = false)

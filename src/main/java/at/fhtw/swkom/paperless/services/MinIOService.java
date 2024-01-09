@@ -1,5 +1,9 @@
 package at.fhtw.swkom.paperless.services;
 
+import at.fhtw.swkom.paperless.persistance.entities.DocumentsDocumentEntity;
+import at.fhtw.swkom.paperless.persistance.repositories.DocumentsDocumentRepository;
+import at.fhtw.swkom.paperless.services.dto.Document;
+import at.fhtw.swkom.paperless.services.mapper.DocumentMapper;
 import io.minio.GetObjectArgs;
 import io.minio.MakeBucketArgs;
 import io.minio.MinioClient;
@@ -16,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.time.OffsetDateTime;
 
 @Data
 @Service
@@ -86,6 +91,6 @@ public class MinIOService {
             e.printStackTrace();
             return null;
         }
-    }
 
+    }
 }

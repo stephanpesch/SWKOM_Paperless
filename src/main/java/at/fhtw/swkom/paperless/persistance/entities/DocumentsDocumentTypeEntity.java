@@ -1,24 +1,29 @@
 package at.fhtw.swkom.paperless.persistance.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "documents_documenttype", uniqueConstraints = @UniqueConstraint(columnNames = {"name", "owner_id"}))
 public class DocumentsDocumentTypeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
     private Integer id;
 
     @Column(name = "name", nullable = false, length = 128)
@@ -40,7 +45,7 @@ public class DocumentsDocumentTypeEntity {
     @OneToMany(mappedBy = "documentType")
     private Set<DocumentsDocumentEntity> documentTypeDocuments;
 
-    @OneToMany(mappedBy = "assignDocumentType")
-    private Set<PaperlessMailMailruleEntity> assignDocumentTypeMailRules;
+   // @OneToMany(mappedBy = "assignDocumentType")
+    //private Set<PaperlessMailMailruleEntity> assignDocumentTypeMailRules;
 
 }

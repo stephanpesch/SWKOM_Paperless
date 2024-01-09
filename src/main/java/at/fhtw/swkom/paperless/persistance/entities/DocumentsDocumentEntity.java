@@ -6,21 +6,27 @@ import jakarta.persistence.*;
 import java.time.OffsetDateTime;
 import java.util.Set;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "documents_document")
 public class DocumentsDocumentEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
     private Integer id;
 
     @Column(name = "title", nullable = false, length = 128)
@@ -37,7 +43,7 @@ public class DocumentsDocumentEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "correspondent_id")
-    private Correspondent correspondent;
+    private DocumentsCorrespondentEntity correspondent;
 
     @Column(name = "checksum", nullable = false, length = 32, unique = true)
     private String checksum;
@@ -56,7 +62,7 @@ public class DocumentsDocumentEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "document_type_id")
-    private DocumentType documentType;
+    private DocumentsDocumentTypeEntity documentType;
 
     @Column(name = "mime_type", nullable = false, length = 256)
     private String mimeType;
@@ -84,6 +90,7 @@ public class DocumentsDocumentEntity {
 
     @OneToMany(mappedBy = "document")
     private Set<DocumentsNoteEntity> notes;
+
 
 }
 

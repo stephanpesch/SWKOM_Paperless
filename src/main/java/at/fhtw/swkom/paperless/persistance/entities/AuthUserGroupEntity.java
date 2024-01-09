@@ -1,36 +1,38 @@
 package at.fhtw.swkom.paperless.persistance.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Entity
-@Table(name = "auth_user_groups", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "group_id"}))
+@Table(name = "auth_user_groups")
 public class AuthUserGroupEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private AuthUserEntity user;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "user_id", nullable = false)
+    //private AuthUserEntity user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id", nullable = false)
-    private AuthGroupEntity group;
-
-    @OneToMany(mappedBy = "group")
-    private Set<AuthUserGroupEntity> groupUserGroups;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "permission_id", nullable = false)
+    //private AuthPermissionEntity permission;
 
 }
 

@@ -27,7 +27,7 @@ services:
         environment:
             POSTGRES_USER: 'paperless'
             POSTGRES_PASSWORD: 'paperless'
-            POSTGRES_DB: 'paperless_db'
+            POSTGRES_DB: 'paperless'
         ports:
             - "5432:5432"
 

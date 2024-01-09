@@ -2,33 +2,39 @@ package at.fhtw.swkom.paperless.persistance.entities;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "auth_group", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class AuthGroupEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
     private Integer id;
 
     @Column(name = "name", nullable = false, length = 150, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "group")
-    private Set<AuthUserGroupEntity> groupUserGroups;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id", nullable = false)
+    private AuthGroupEntity group;
 
-    @OneToMany(mappedBy = "group")
-    private Set<AuthUserGroupEntity> groupGroupPermissions;
+    //@OneToMany(mappedBy = "user")
+    //private Set<AuthUserUserPermissionsEntity> UserUserPermissions;
 
 }
 

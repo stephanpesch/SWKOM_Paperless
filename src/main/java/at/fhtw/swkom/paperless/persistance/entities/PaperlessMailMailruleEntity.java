@@ -1,24 +1,29 @@
 package at.fhtw.swkom.paperless.persistance.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.util.Set;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-
+@Getter
+@Setter
 @Entity
 @Table(name = "paperless_mail_mailrule", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class PaperlessMailMailruleEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
     private Integer id;
 
     @Column(name = "name", nullable = false, length = 256, unique = true)
@@ -82,11 +87,11 @@ public class PaperlessMailMailruleEntity {
     @Column(name = "filter_to", length = 256)
     private String filterTo;
 
-    @OneToMany(mappedBy = "rule")
-    private Set<PaperlessMailProcessedmailEntity> rulePaperlessMail;
+    //@OneToMany(mappedBy = "rule")
+    //private Set<PaperlessMailProcessedmailEntity> rulePaperlessMail;
 
-    @OneToMany(mappedBy = "mailrule")
-    private Set<PaperlessMailMailruleAssignTagsEntity> mailrulePaperlessMailTags;
+    //@OneToMany(mappedBy = "mailrule")
+    //private Set<PaperlessMailMailruleAssignTagsEntity> mailrulePaperlessMailTags;
 
 }
 
