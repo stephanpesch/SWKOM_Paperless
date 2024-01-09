@@ -8,10 +8,62 @@ services:
             - "8080:8080"
         depends_on:
             - angular-app
-
+            - postgres_db
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql:localhost:5432/paperless_db
+            - SPRING_DATASOURCE_USERNAME=paperless
+            - SPRING_DATASOURCE_PASSWORD=paperless
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     angular-app:
         image: nginx:latest
         volumes:
             - ./paperless-ngx-ui:/usr/share/nginx/html
         ports:
             - "80:80"
+
+    postgres_db:
+        image: postgres:latest
+        container_name: postgres
+        environment:
+            POSTGRES_USER: 'paperless'
+            POSTGRES_PASSWORD: 'paperless'
+            POSTGRES_DB: 'paperless_db'
+        ports:
+            - "5432:5432"
+
+        volumes:
+            - ./postgres_db-data:/var/lib/postgresql/data
+            - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+
+    rabbitmq:
+        image: "rabbitmq:3-management"
+        container_name: 'rabbitmq'
+        ports:
+            - "5672:5672"
+            - "9093:15672"
+        environment:
+            RABBITMQ_DEFAULT_USER: "rabbitmq_user"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq_password"
+        volumes:
+            - ./data:/var/lib/rabbitmq/mnesia/
+
+
+    minio:
+        image: minio/minio
+        ports:
+            - "9000:9000"
+            - "9090:9090"
+        environment:
+            MINIO_ACCESS_KEY: minio
+            MINIO_SECRET_KEY: minio123
+        command: server /data --console-address ":9090"
+        volumes:
+            - ./minio_data:/data
+
+
+    ocr-server:
+        image: tesseractshadow/tesseract4re
+        container_name: tesseract
+        volumes:
+            - ./ocr_data:/var/lib/ocr/data

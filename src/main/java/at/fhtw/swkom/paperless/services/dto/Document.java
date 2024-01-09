@@ -8,6 +8,11 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Builder.Default;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.NoSuchElementException;
@@ -20,11 +25,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.*;
 import jakarta.annotation.Generated;
-
+import lombok.Builder.Default;
 /**
  * Document
  */
-
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-10T09:40:41.152453Z[Etc/UTC]")
 public class Document {
 
@@ -41,6 +49,7 @@ public class Document {
   private JsonNullable<String> content = JsonNullable.<String>undefined();
 
   @Valid
+  @Default
   private JsonNullable<List<Integer>> tags = JsonNullable.<List<Integer>>undefined();
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -68,9 +77,10 @@ public class Document {
 
   /**
    * Get id
+   *
    * @return id
-  */
-  
+   */
+
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
@@ -88,9 +98,10 @@ public class Document {
 
   /**
    * Get correspondent
+   *
    * @return correspondent
-  */
-  
+   */
+
   @Schema(name = "correspondent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("correspondent")
   public JsonNullable<Integer> getCorrespondent() {
@@ -108,9 +119,10 @@ public class Document {
 
   /**
    * Get documentType
+   *
    * @return documentType
-  */
-  
+   */
+
   @Schema(name = "document_type", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("document_type")
   public JsonNullable<Integer> getDocumentType() {
@@ -128,9 +140,10 @@ public class Document {
 
   /**
    * Get storagePath
+   *
    * @return storagePath
-  */
-  
+   */
+
   @Schema(name = "storage_path", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("storage_path")
   public JsonNullable<Integer> getStoragePath() {
@@ -148,9 +161,10 @@ public class Document {
 
   /**
    * Get title
+   *
    * @return title
-  */
-  
+   */
+
   @Schema(name = "title", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("title")
   public JsonNullable<String> getTitle() {
@@ -168,9 +182,10 @@ public class Document {
 
   /**
    * Get content
+   *
    * @return content
-  */
-  
+   */
+
   @Schema(name = "content", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("content")
   public JsonNullable<String> getContent() {
@@ -196,9 +211,10 @@ public class Document {
 
   /**
    * Get tags
+   *
    * @return tags
-  */
-  
+   */
+
   @Schema(name = "tags", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("tags")
   public JsonNullable<List<Integer>> getTags() {
@@ -216,9 +232,10 @@ public class Document {
 
   /**
    * Get created
+   *
    * @return created
-  */
-  @Valid 
+   */
+  @Valid
   @Schema(name = "created", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("created")
   public OffsetDateTime getCreated() {
@@ -236,9 +253,10 @@ public class Document {
 
   /**
    * Get createdDate
+   *
    * @return createdDate
-  */
-  @Valid 
+   */
+  @Valid
   @Schema(name = "created_date", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("created_date")
   public OffsetDateTime getCreatedDate() {
@@ -256,9 +274,10 @@ public class Document {
 
   /**
    * Get modified
+   *
    * @return modified
-  */
-  @Valid 
+   */
+  @Valid
   @Schema(name = "modified", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("modified")
   public OffsetDateTime getModified() {
@@ -276,9 +295,10 @@ public class Document {
 
   /**
    * Get added
+   *
    * @return added
-  */
-  @Valid 
+   */
+  @Valid
   @Schema(name = "added", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("added")
   public OffsetDateTime getAdded() {
@@ -296,9 +316,10 @@ public class Document {
 
   /**
    * Get archiveSerialNumber
+   *
    * @return archiveSerialNumber
-  */
-  
+   */
+
   @Schema(name = "archive_serial_number", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("archive_serial_number")
   public JsonNullable<String> getArchiveSerialNumber() {
@@ -316,9 +337,10 @@ public class Document {
 
   /**
    * Get originalFileName
+   *
    * @return originalFileName
-  */
-  
+   */
+
   @Schema(name = "original_file_name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("original_file_name")
   public JsonNullable<String> getOriginalFileName() {
@@ -336,9 +358,10 @@ public class Document {
 
   /**
    * Get archivedFileName
+   *
    * @return archivedFileName
-  */
-  
+   */
+
   @Schema(name = "archived_file_name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("archived_file_name")
   public JsonNullable<String> getArchivedFileName() {
@@ -359,19 +382,19 @@ public class Document {
     }
     Document document = (Document) o;
     return Objects.equals(this.id, document.id) &&
-        equalsNullable(this.correspondent, document.correspondent) &&
-        equalsNullable(this.documentType, document.documentType) &&
-        equalsNullable(this.storagePath, document.storagePath) &&
-        equalsNullable(this.title, document.title) &&
-        equalsNullable(this.content, document.content) &&
-        equalsNullable(this.tags, document.tags) &&
-        Objects.equals(this.created, document.created) &&
-        Objects.equals(this.createdDate, document.createdDate) &&
-        Objects.equals(this.modified, document.modified) &&
-        Objects.equals(this.added, document.added) &&
-        equalsNullable(this.archiveSerialNumber, document.archiveSerialNumber) &&
-        equalsNullable(this.originalFileName, document.originalFileName) &&
-        equalsNullable(this.archivedFileName, document.archivedFileName);
+            equalsNullable(this.correspondent, document.correspondent) &&
+            equalsNullable(this.documentType, document.documentType) &&
+            equalsNullable(this.storagePath, document.storagePath) &&
+            equalsNullable(this.title, document.title) &&
+            equalsNullable(this.content, document.content) &&
+            equalsNullable(this.tags, document.tags) &&
+            Objects.equals(this.created, document.created) &&
+            Objects.equals(this.createdDate, document.createdDate) &&
+            Objects.equals(this.modified, document.modified) &&
+            Objects.equals(this.added, document.added) &&
+            equalsNullable(this.archiveSerialNumber, document.archiveSerialNumber) &&
+            equalsNullable(this.originalFileName, document.originalFileName) &&
+            equalsNullable(this.archivedFileName, document.archivedFileName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -422,5 +445,6 @@ public class Document {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
 

@@ -5,6 +5,7 @@
  */
 package at.fhtw.swkom.paperless.controller;
 
+import at.fhtw.swkom.paperless.services.RabbitMQService;
 import at.fhtw.swkom.paperless.services.dto.AckTasks200Response;
 import at.fhtw.swkom.paperless.services.dto.AckTasksRequest;
 import at.fhtw.swkom.paperless.services.dto.BulkEditRequest;
@@ -19,6 +20,7 @@ import at.fhtw.swkom.paperless.services.dto.CreateTagRequest;
 import at.fhtw.swkom.paperless.services.dto.CreateUISettings200Response;
 import at.fhtw.swkom.paperless.services.dto.CreateUISettingsRequest;
 import at.fhtw.swkom.paperless.services.dto.CreateUserRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import at.fhtw.swkom.paperless.services.dto.GetCorrespondents200Response;
 import at.fhtw.swkom.paperless.services.dto.GetDocument200Response;
@@ -121,7 +123,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -146,7 +148,7 @@ public interface ApiApi {
     default ResponseEntity<Void> apiGet(
         
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -186,7 +188,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -213,7 +215,7 @@ public interface ApiApi {
     default ResponseEntity<Void> bulkEdit(
         @Parameter(name = "BulkEditRequest", description = "") @Valid @RequestBody(required = false) BulkEditRequest bulkEditRequest
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -252,7 +254,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -291,7 +293,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -321,7 +323,7 @@ public interface ApiApi {
     default ResponseEntity<Object> createGroup(
         @Parameter(name = "CreateGroupRequest", description = "") @Valid @RequestBody(required = false) CreateGroupRequest createGroupRequest
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -387,7 +389,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -426,7 +428,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -504,7 +506,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -530,7 +532,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteCorrespondent(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -556,7 +558,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteDocument(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -582,7 +584,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteDocumentType(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -608,7 +610,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteGroup(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -634,7 +636,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteStoragePath(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -660,7 +662,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteTag(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -686,7 +688,7 @@ public interface ApiApi {
     default ResponseEntity<Void> deleteUser(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -717,7 +719,7 @@ public interface ApiApi {
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
         @Parameter(name = "original", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "original", required = false) Boolean original
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -757,7 +759,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -799,7 +801,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -837,7 +839,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -866,7 +868,7 @@ public interface ApiApi {
     default ResponseEntity<org.springframework.core.io.Resource> getDocumentPreview(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -904,7 +906,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -933,7 +935,7 @@ public interface ApiApi {
     default ResponseEntity<org.springframework.core.io.Resource> getDocumentThumb(
         @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -973,7 +975,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1027,7 +1029,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1067,7 +1069,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1105,7 +1107,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1142,7 +1144,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1222,7 +1224,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1262,7 +1264,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1299,7 +1301,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1326,7 +1328,7 @@ public interface ApiApi {
     default ResponseEntity<Void> getToken(
         @Parameter(name = "UserInfo", description = "") @Valid @RequestBody(required = false) UserInfo userInfo
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1403,7 +1405,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1428,7 +1430,7 @@ public interface ApiApi {
     default ResponseEntity<Void> root(
         
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1467,7 +1469,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1504,7 +1506,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1545,7 +1547,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1586,7 +1588,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1627,7 +1629,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1668,7 +1670,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1709,7 +1711,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1750,7 +1752,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1791,7 +1793,7 @@ public interface ApiApi {
                 }
             }
         });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -1819,7 +1821,6 @@ public interface ApiApi {
         value = "/api/documents/post_document/",
         consumes = { "multipart/form-data" }
     )
-    
     default ResponseEntity<Void> uploadDocument(
         @Parameter(name = "title", description = "") @Valid @RequestParam(value = "title", required = false) String title,
         @Parameter(name = "created", description = "") @Valid @RequestParam(value = "created", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime created,
@@ -1828,8 +1829,7 @@ public interface ApiApi {
         @Parameter(name = "correspondent", description = "") @Valid @RequestParam(value = "correspondent", required = false) Integer correspondent,
         @Parameter(name = "document", description = "") @RequestPart(value = "document", required = false) List<MultipartFile> document
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
-
 }
