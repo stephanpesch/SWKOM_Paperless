@@ -2,29 +2,24 @@ package at.fhtw.swkom.paperless.persistance.entities;
 
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 
-@Getter
-@Setter
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "paperless_mail_mailaccount", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class PaperlessMailMailaccountEntity {
 
     @Id
-    @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name", nullable = false, length = 256, unique = true)
@@ -55,8 +50,8 @@ public class PaperlessMailMailaccountEntity {
     @Column(name = "is_token", nullable = false)
     private Boolean isToken;
 
-    //@OneToMany(mappedBy = "account")
-    //private Set<PaperlessMailMailruleEntity> accountMailRules;
+    @OneToMany(mappedBy = "account")
+    private Set<PaperlessMailMailruleEntity> accountMailRules;
 
 }
 

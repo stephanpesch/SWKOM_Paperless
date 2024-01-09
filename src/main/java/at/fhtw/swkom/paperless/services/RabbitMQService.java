@@ -23,7 +23,6 @@ public class RabbitMQService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendToOcrDocumentInQueue(String message) {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.MESSAGE_IN_QUEUE, message);
-    }
+
+
 }

@@ -9,10 +9,8 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableTransactionManagement
 public class SpringDocConfiguration {
 
     @Bean(name = "at.fhtw.swkom.paperless.config.SpringDocConfiguration.apiInfo")
